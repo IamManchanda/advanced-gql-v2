@@ -38,7 +38,7 @@ const getUserFromToken = (token) => {
  */
 const authenticated = (next) => (root, args, context, info) => {
   if (!context.user) {
-    throw new Error("Not authorized to authenticate");
+    throw new Error("Not authenticated");
   }
   return next(root, args, context, info);
 };

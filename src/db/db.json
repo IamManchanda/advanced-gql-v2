@@ -71,8 +71,42 @@
       "avatar": "http",
       "createdAt": 1597146774009,
       "id": "6GnHiLl9u8M-w1V-bmS4H"
+    },
+    {
+      "email": "hello@yo.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597156772647,
+      "id": "7CP_7GGLlcwRUOvcPN4TD"
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "message": "hello there",
+      "author": "7CP_7GGLlcwRUOvcPN4TD",
+      "createdAt": 1597157013545,
+      "id": "Xw-QHxzysat3cVlowEH86"
+    },
+    {
+      "message": "hello vue",
+      "author": "7CP_7GGLlcwRUOvcPN4TD",
+      "createdAt": 1597157178641,
+      "id": "2YOqgiHUssPdk3qdABq-p"
+    },
+    {
+      "message": "hello react",
+      "author": "7CP_7GGLlcwRUOvcPN4TD",
+      "createdAt": 1597157184601,
+      "id": "wGpojI6FBWYbiEqcL7BFq"
+    },
+    {
+      "message": "hello node",
+      "author": "7CP_7GGLlcwRUOvcPN4TD",
+      "createdAt": 1597157191703,
+      "id": "zWTLSe3ypLMIzasXr2XHL"
+    }
+  ],
   "settings": []
 }
