@@ -1,0 +1,5 @@
+mutation InviteUser {
+  invite(input: { email: "hello@world.com", role: MEMBER }) {
+    email
+  }
+}

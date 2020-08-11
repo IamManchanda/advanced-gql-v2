@@ -1,13 +1,78 @@
 {
-  "users": [{
-    "email": "member@member.com",
-    "password": "password",
-    "role": "ADMIN",
-    "verified": false,
-    "avatar": "http",
-    "createdAt": 1571213104370,
-    "id": "Z2hlvDmLOSRZGebC_Z_aA"
-  }],
+  "users": [
+    {
+      "email": "member@member.com",
+      "password": "password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1571213104370,
+      "id": "Z2hlvDmLOSRZGebC_Z_aA"
+    },
+    {
+      "email": "master@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597138104605,
+      "id": "9cek_raiU9rxnmOmubaJq"
+    },
+    {
+      "email": "master1@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597139029528,
+      "id": "OVxvbJ700Ppgvd_rHTi0P"
+    },
+    {
+      "email": "master2@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597145620192,
+      "id": "B5g49gzFMyHUcXPEyOLRe"
+    },
+    {
+      "email": "masterdev@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597145675232,
+      "id": "HsPZO_VRnWwq3J2idlwao"
+    },
+    {
+      "email": "admindev@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597146690726,
+      "id": "YLH-wE8f9dM8DRerZEuMn"
+    },
+    {
+      "email": "admin.dev@code.com",
+      "password": "my_top_secret_password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597146726682,
+      "id": "4-JIGvyywUzH1o5lfBP7s"
+    },
+    {
+      "email": "member.dev@code.com",
+      "password": "my_top_secret_password",
+      "role": "MEMBER",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1597146774009,
+      "id": "6GnHiLl9u8M-w1V-bmS4H"
+    }
+  ],
   "posts": [],
   "settings": []
 }

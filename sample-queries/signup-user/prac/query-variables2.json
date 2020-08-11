@@ -1,0 +1,7 @@
+{
+  "auth": {
+    "email": "member.dev@code.com",
+    "password": "my_top_secret_password",
+    "role": "MEMBER"
+  }
+}
