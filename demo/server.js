@@ -1,4 +1,10 @@
-const { ApolloServer, PubSub } = require("apollo-server");
+const {
+  ApolloServer,
+  PubSub,
+  AuthenticationError,
+  UserInputError,
+  ApolloError,
+} = require("apollo-server");
 const gql = require("graphql-tag");
 
 const pubSub = new PubSub();
@@ -87,7 +93,7 @@ const resolvers = {
   },
   User: {
     error() {
-      throw new Error("Noooo");
+      throw new UserInputError("Wrong Fields");
     },
   },
 };
@@ -95,6 +101,10 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  formatError(error) {
+    console.log(error);
+    return new Error("custom error");
+  },
   context({ connection, req }) {
     if (connection) {
       return { ...connection.context };
