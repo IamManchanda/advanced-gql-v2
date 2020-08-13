@@ -14,6 +14,7 @@ const typeDefs = gql`
   type User {
     id: ID!
     error: String!
+    content: String! @deprecated(reason: "Why? Because I said so!")
     username: String!
     createdAt: Int!
   }
@@ -94,6 +95,9 @@ const resolvers = {
   User: {
     error() {
       throw new UserInputError("Wrong Fields");
+    },
+    content() {
+      return "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero nobis dolor vero id nemo amet laborum eum dolorum ipsum laudantium iure fugiat beatae eius repellendus magnam, accusamus maxime ab ex.";
     },
   },
 };
