@@ -1,0 +1,8 @@
+query FindMeFiltered($yes: Boolean!) {
+  me {
+    content @skip(if: $yes)
+    id
+    username
+    createdAt
+  }
+}
