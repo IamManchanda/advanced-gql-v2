@@ -7,6 +7,7 @@ const NEW_ITEM = "NEW_ITEM";
 const typeDefs = gql`
   type User {
     id: ID!
+    error: String!
     username: String!
     createdAt: Int!
   }
@@ -82,6 +83,11 @@ const resolvers = {
         username: "harry",
         createdAt: 1596721099094,
       };
+    },
+  },
+  User: {
+    error() {
+      throw new Error("Noooo");
     },
   },
 };
