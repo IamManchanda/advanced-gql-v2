@@ -11,7 +11,6 @@ const createTestServer = (ctx) => {
     mocks: true,
     context: () => ctx,
   });
-
   return createTestClient(server);
 };
 
