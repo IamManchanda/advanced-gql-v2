@@ -9,7 +9,7 @@
     "dev": "nodemon src/index.js --ignore 'src/db/db.json'",
     "start:demo": "node demo/server.js",
     "dev:demo": "nodemon demo/server.js",
-    "test": "jest tests"
+    "test": "jest tests --coverage --updateSnapshot"
   },
   "devDependencies": {
     "apollo-server-testing": "^2.16.1",

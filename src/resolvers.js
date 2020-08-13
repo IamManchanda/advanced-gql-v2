@@ -1,4 +1,4 @@
-const { PubSub } = require("apollo-server");
+const { PubSub, AuthenticationError } = require("apollo-server");
 const { authenticated, authorized } = require("./auth");
 const NEW_POST = "NEW_POST";
 
@@ -54,9 +54,8 @@ module.exports = {
     // public resolver
     signup(_, { input }, { models, createToken }) {
       const existing = models.User.findOne({ email: input.email });
-
       if (existing) {
-        throw new Error("nope");
+        throw new AuthenticationError("Invalid");
       }
       const user = models.User.createOne({
         ...input,
@@ -69,11 +68,9 @@ module.exports = {
     // public resolver
     signin(_, { input }, { models, createToken }) {
       const user = models.User.findOne(input);
-
       if (!user) {
-        throw new Error("nope");
+        throw new AuthenticationError("Invalid Password + Email Combo");
       }
-
       const token = createToken(user);
       return { token, user };
     },
@@ -86,7 +83,7 @@ module.exports = {
   User: {
     posts(root, _, { user, models }) {
       if (root.id !== user.id) {
-        throw new Error("nope");
+        throw new AuthenticationError("Not yours account");
       }
 
       return models.Post.findMany({ author: root.id });
