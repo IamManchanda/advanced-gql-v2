@@ -1,0 +1,6 @@
+query FindMeLogging {
+  me {
+    id(message: "How are you Mr. ID")
+    username
+  }
+}
