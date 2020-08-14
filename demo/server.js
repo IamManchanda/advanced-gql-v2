@@ -3,7 +3,7 @@ const {
   PubSub,
   SchemaDirectiveVisitor,
 } = require("apollo-server");
-const { defaultFieldResolver } = require("graphql");
+const { defaultFieldResolver, GraphQLString } = require("graphql");
 const gql = require("graphql-tag");
 
 const pubSub = new PubSub();
@@ -12,18 +12,23 @@ const NEW_ITEM = "NEW_ITEM";
 class LogDirective extends SchemaDirectiveVisitor {
   visitFieldDefinition(field) {
     const resolver = field.resolve || defaultFieldResolver;
-    field.resolve = (args) => {
-      console.log("✈️ Hello!");
-      return resolver.apply(this, args);
+    field.args.push({
+      type: GraphQLString,
+      name: "message",
+    });
+    field.resolve = (root, { message, ...rest }, ctx, info) => {
+      const { message: schemaMessage } = this.args;
+      console.log(`✈️ Hello, ${message || schemaMessage}!`);
+      return resolver.call(this, root, rest, ctx, info);
     };
   }
 }
 
 const typeDefs = gql`
-  directive @log on FIELD_DEFINITION
+  directive @log(message: String = "Logged successfully.") on FIELD_DEFINITION
 
   type User {
-    id: ID! @log
+    id: ID! @log(message: "Log your ID here")
     content: String!
       @deprecated(reason: "Why? Because I said so! I am the Boss here!!")
     username: String!
