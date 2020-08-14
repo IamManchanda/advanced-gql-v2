@@ -1,0 +1,7 @@
+query FormatFeed {
+  feed {
+    id
+    createdAt(format: "dd MMMM, yyyy")
+    message
+  }
+}
