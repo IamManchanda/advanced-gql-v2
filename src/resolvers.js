@@ -11,9 +11,9 @@ const pubSub = new PubSub();
  */
 module.exports = {
   Query: {
-    me: authenticated((_, __, { user }) => {
+    me(_, __, { user }) {
       return user;
-    }),
+    },
     posts: authenticated((_, __, { user, models }) => {
       return models.Post.findMany({ author: user.id });
     }),
@@ -41,16 +41,14 @@ module.exports = {
       return models.User.updateOne({ id: user.id }, input);
     }),
     // admin role
-    invite: authenticated(
-      authorized("ADMIN", (_, { input }, { user }) => {
-        return {
-          from: user.id,
-          role: input.role,
-          createdAt: Date.now(),
-          email: input.email,
-        };
-      }),
-    ),
+    invite(_, { input }, { user }) {
+      return {
+        from: user.id,
+        role: input.role,
+        createdAt: Date.now(),
+        email: input.email,
+      };
+    },
     // public resolver
     signup(_, { input }, { models, createToken }) {
       const existing = models.User.findOne({ email: input.email });
